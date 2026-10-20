@@ -1,0 +1,25 @@
+{
+  "announce-jj-workspaces": {
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "uv run python hooks/announce.py",
+        "timeout": 10
+      }
+    ]
+  },
+  "safeguard-jj-workspaces": {
+    "PreToolUse": [
+      {
+        "matcher": "run_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run python hooks/safeguard.py",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}
